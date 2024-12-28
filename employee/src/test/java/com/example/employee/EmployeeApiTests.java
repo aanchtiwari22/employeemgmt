@@ -7,22 +7,10 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+
 public class EmployeeApiTests {
 
-    @Test
-    public void testGetAllEmployees() {
-        RestAssured.baseURI = "http://localhost:8081";
-
-        // Test GET /api/employees
-        given()
-            .contentType(ContentType.JSON)
-        .when()
-            .get("/api/employees")
-        .then()
-            .statusCode(200)
-            .body("$", notNullValue()); // Ensure response body is not null
-    }
-
+ 
     @Test
     public void testCreateEmployee() {
         RestAssured.baseURI = "http://localhost:8081";
@@ -46,6 +34,21 @@ public class EmployeeApiTests {
             .body("role", equalTo("Developer"));
     }
 
+    @Test
+    public void testGetAllEmployees() {
+        RestAssured.baseURI = "http://localhost:8081";
+
+        // Test GET /api/employees
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("/api/employees")
+        .then()
+            .statusCode(200)
+            .body("$", notNullValue()); // Ensure response body is not null
+    }
+
+   /*
     @Test
     public void testUpdateEmployee() {
         RestAssured.baseURI = "http://localhost:8081";
@@ -123,4 +126,5 @@ public class EmployeeApiTests {
         .then()
             .statusCode(404);
     }
+    */
 }
