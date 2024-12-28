@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class SeleniumUITests {
-    @Test
     
-    public void testHomePage() {
+	   @Test
+        public void testHomePage() {
         System.setProperty("webdriver.chrome.driver", "D:\\softwares\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://localhost:8081");
